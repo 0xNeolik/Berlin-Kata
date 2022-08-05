@@ -51,3 +51,49 @@ export const singleHoursLights = (hours) => {
   }
   return result;
 };
+
+export const fiveMinutesLights = (minutes) => {
+  let fiveMinutesCount = Math.floor(minutes / 5);
+  let result;
+  switch (fiveMinutesCount) {
+    case 0:
+      result = "OOOOOOOOOOO";
+      break;
+    case 1:
+      result = "YOOOOOOOOOO";
+      break;
+    case 2:
+      result = "YYOOOOOOOOO";
+      break;
+    case 3:
+      result = "YYROOOOOOOO";
+      break;
+    case 4:
+      result = "YYRYOOOOOOO";
+      break;
+    case 5:
+      result = "YYRYYOOOOOO";
+      break;
+    case 6:
+      result = "YYRYYROOOOO";
+      break;
+    case 7:
+      result = "YYRYYRYOOOO";
+      break;
+    case 8:
+      result = "YYRYYRYYOOO";
+      break;
+    case 9:
+      result = "YYRYYRYYROO";
+      break;
+    case 10:
+      result = "YYRYYRYYRYO";
+      break;
+    case 11:
+      result = "YYRYYRYYRYY";
+      break;
+    default:
+      result = "OOOOOOOOOOO";
+  }
+  return result;
+};
