@@ -186,7 +186,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YOOOOOOOOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-1"
+      "clock-5-minutes-container-children-0"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
@@ -199,7 +199,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYOOOOOOOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-2"
+      "clock-5-minutes-container-children-1"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
@@ -212,7 +212,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYROOOOOOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-3"
+      "clock-5-minutes-container-children-2"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "red",
@@ -225,7 +225,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYOOOOOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-4"
+      "clock-5-minutes-container-children-3"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
@@ -238,7 +238,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYYOOOOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-5"
+      "clock-5-minutes-container-children-4"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
@@ -251,7 +251,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYYROOOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-6"
+      "clock-5-minutes-container-children-5"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "red",
@@ -264,7 +264,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYYRYOOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-7"
+      "clock-5-minutes-container-children-6"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
@@ -277,7 +277,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYYRYYOOO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-8"
+      "clock-5-minutes-container-children-7"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
@@ -290,7 +290,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYYRYYROO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-9"
+      "clock-5-minutes-container-children-8"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "red",
@@ -303,7 +303,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYYRYYRYO");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-10"
+      "clock-5-minutes-container-children-9"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
@@ -316,7 +316,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("YYRYYRYYRYY");
     const containerStyle = findByTestAttribute(
       wrapper,
-      "clock-5-minutes-container-children-11"
+      "clock-5-minutes-container-children-10"
     );
     expect(containerStyle.props().style).toStrictEqual({
       backgroundColor: "yellow",
