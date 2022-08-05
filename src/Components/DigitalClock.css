@@ -1,0 +1,15 @@
+#clock {
+  display: flex;
+  flex-direction: column;
+}
+.clock-light {
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DigitalClock from "./Components/DigitalClock";
+import "./App.css";
 import { digitalTimeHourMinSec, splitDigitalTime } from "./Utils/utils";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     }, 1000);
   }, []);
   return (
-    <div className="App">
+    <div className="app-container">
       Berlin Clock
       <DigitalClock
         seconds={time.seconds}
