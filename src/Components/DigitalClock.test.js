@@ -95,7 +95,7 @@ describe("test the correct job of the seconds clock", () => {
   });
 
   test("renders OOOO when the hous is the first of the block and styled the light", () => {
-    wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
+    wrapper = setUp({ hours: 0, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
       "clock-single-hour-container"
@@ -111,7 +111,7 @@ describe("test the correct job of the seconds clock", () => {
   });
 
   test("renders ROOO when the hous is the second of the block and styled the light", () => {
-    wrapper = setUp({ hours: 7, minutes: 0, seconds: 0 });
+    wrapper = setUp({ hours: 1, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
       "clock-single-hour-container"
@@ -127,7 +127,7 @@ describe("test the correct job of the seconds clock", () => {
   });
 
   test("renders RROO when the hous is the third of the block and styled the light", () => {
-    wrapper = setUp({ hours: 11, minutes: 0, seconds: 0 });
+    wrapper = setUp({ hours: 2, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
       "clock-single-hour-container"
@@ -143,7 +143,7 @@ describe("test the correct job of the seconds clock", () => {
   });
 
   test("renders RRRO when the hous is the fourth of the block and styled the light", () => {
-    wrapper = setUp({ hours: 16, minutes: 0, seconds: 0 });
+    wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
       "clock-single-hour-container"
@@ -159,7 +159,7 @@ describe("test the correct job of the seconds clock", () => {
   });
 
   test("renders RRRR when the hous is the last of the block", () => {
-    wrapper = setUp({ hours: 23, minutes: 0, seconds: 0 });
+    wrapper = setUp({ hours: 4, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
       "clock-single-hour-container"

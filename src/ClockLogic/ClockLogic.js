@@ -26,3 +26,28 @@ export const fiveHoursLights = (hours) => {
   }
   return result;
 };
+
+export const singleHoursLights = (hours) => {
+  let oneHoursCount = hours % 5;
+  let result;
+  switch (oneHoursCount) {
+    case 0:
+      result = "OOOO";
+      break;
+    case 1:
+      result = "ROOO";
+      break;
+    case 2:
+      result = "RROO";
+      break;
+    case 3:
+      result = "RRRO";
+      break;
+    case 4:
+      result = "RRRR";
+      break;
+    default:
+      result = "OOOO";
+  }
+  return result;
+};

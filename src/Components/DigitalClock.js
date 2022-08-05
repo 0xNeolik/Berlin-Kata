@@ -1,5 +1,9 @@
 import React from "react";
-import { secondsLight, fiveHoursLights } from "../ClockLogic/ClockLogic";
+import {
+  secondsLight,
+  fiveHoursLights,
+  singleHoursLights,
+} from "../ClockLogic/ClockLogic";
 import "./DigitalClock.css";
 
 export default function DigitalClock({ seconds, minutes, hours }) {
@@ -44,6 +48,37 @@ export default function DigitalClock({ seconds, minutes, hours }) {
           data-test="clock-5-hours-container-children-3"
           style={{
             backgroundColor: 20 <= hours ? "yellow" : "red",
+          }}
+        ></div>
+      </div>
+      <div data-test="clock-single-hour-container" className="row">
+        {singleHoursLights(hours)}
+        <div
+          className="clock-light"
+          data-test="clock-single-hour-container-children-0"
+          style={{
+            backgroundColor: hours % 5 > 0 ? "yellow" : "red",
+          }}
+        ></div>
+        <div
+          className="clock-light"
+          data-test="clock-single-hour-container-children-1"
+          style={{
+            backgroundColor: hours % 5 > 1 ? "yellow" : "red",
+          }}
+        ></div>
+        <div
+          className="clock-light"
+          data-test="clock-single-hour-container-children-2"
+          style={{
+            backgroundColor: hours % 5 > 2 ? "yellow" : "red",
+          }}
+        ></div>
+        <div
+          className="clock-light"
+          data-test="clock-single-hour-container-children-3"
+          style={{
+            backgroundColor: hours % 5 > 3 ? "yellow" : "red",
           }}
         ></div>
       </div>
