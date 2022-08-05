@@ -6,7 +6,13 @@ export default function DigitalClock({ seconds, minutes, hours }) {
   return (
     <div data-test="clock" id="clock">
       <div className="row">
-        <div data-test="clock-seconds" className="clock-light">
+        <div
+          data-test="clock-seconds"
+          className="clock-light"
+          style={{
+            backgroundColor: seconds % 2 ? "yellow" : "red",
+          }}
+        >
           {secondsLight(seconds)}
         </div>
       </div>

@@ -23,10 +23,13 @@ describe("test the correct job of the seconds clock", () => {
     const component = findByTestAttribute(wrapper, "clock-seconds");
     expect(component.length).toBe(1);
   });
-  test("renders O when seconds are odd", () => {
+  test("renders O when seconds are odd and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 39 });
     const component = findByTestAttribute(wrapper, "clock-seconds");
     expect(component.text()).toBe("O");
+    expect(component.props().style).toStrictEqual({
+      backgroundColor: "yellow",
+    });
   });
   test("renders Y when seconds are even", () => {
     const component = findByTestAttribute(wrapper, "clock-seconds");
