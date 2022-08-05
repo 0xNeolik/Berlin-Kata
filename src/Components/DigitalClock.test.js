@@ -88,9 +88,82 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders RRRR when the hours are beetwen 20-24 and styled the light", () => {
+  test("renders RRRR when the hours are beetwen 20-24", () => {
     wrapper = setUp({ hours: 23, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-hours-container");
+    expect(component.text()).toBe("RRRR");
+  });
+
+  test("renders OOOO when the hous is the first of the block and styled the light", () => {
+    wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container"
+    );
+    expect(component.text()).toBe("OOOO");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container-children-0"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "red",
+    });
+  });
+
+  test("renders ROOO when the hous is the second of the block and styled the light", () => {
+    wrapper = setUp({ hours: 7, minutes: 0, seconds: 0 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container"
+    );
+    expect(component.text()).toBe("ROOO");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container-children-1"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "red",
+    });
+  });
+
+  test("renders RROO when the hous is the third of the block and styled the light", () => {
+    wrapper = setUp({ hours: 11, minutes: 0, seconds: 0 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container"
+    );
+    expect(component.text()).toBe("RROO");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container-children-2"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "red",
+    });
+  });
+
+  test("renders RRRO when the hous is the fourth of the block and styled the light", () => {
+    wrapper = setUp({ hours: 16, minutes: 0, seconds: 0 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container"
+    );
+    expect(component.text()).toBe("RRRO");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container-children-3"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "red",
+    });
+  });
+
+  test("renders RRRR when the hous is the last of the block", () => {
+    wrapper = setUp({ hours: 23, minutes: 0, seconds: 0 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container"
+    );
     expect(component.text()).toBe("RRRR");
   });
 });
