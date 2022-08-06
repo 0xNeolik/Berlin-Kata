@@ -122,3 +122,13 @@ export const singleMinutesLights = (minutes) => {
   }
   return result;
 };
+
+export const getBerlinTime = (seconds, minutes, hours) => {
+  return (
+    secondsLight(seconds) +
+    fiveHoursLights(hours) +
+    singleHoursLights(hours) +
+    fiveMinutesLights(minutes) +
+    singleMinutesLights(minutes)
+  );
+};

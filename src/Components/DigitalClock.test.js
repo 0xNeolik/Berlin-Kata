@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme, { shallow } from "enzyme";
 import EnzymeAdapter from "@wojtekmaj/enzyme-adapter-react-17";
-import { findByTestAttribute, checkProps } from "../test/testUtils";
+import { findByTestAttribute } from "../test/testUtils";
 import DigitalClock from "./DigitalClock";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -15,14 +15,27 @@ describe("test the correct job of the seconds clock", () => {
   beforeEach(() => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 0 });
   });
-  test("renders the clock without a error", () => {
+
+  test("renders the clock without an error", () => {
     const component = findByTestAttribute(wrapper, "clock");
     expect(component.length).toBe(1);
   });
-  test("renders the seconds clock without a error", () => {
+
+  test("renders the berlin time converter to digital time without an error", () => {
+    const component = findByTestAttribute(wrapper, "berlin-time-converter");
+    expect(component.length).toBe(1);
+  });
+
+  test("renders a string with 24 caracteres", () => {
+    const component = findByTestAttribute(wrapper, "berlin-time-value");
+    expect(component.text().length).toBe(24);
+  });
+
+  test("renders the seconds clock without an error", () => {
     const component = findByTestAttribute(wrapper, "clock-seconds");
     expect(component.length).toBe(1);
   });
+
   test("renders O when seconds are odd and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 39 });
     const component = findByTestAttribute(wrapper, "clock-seconds");
@@ -31,6 +44,7 @@ describe("test the correct job of the seconds clock", () => {
       backgroundColor: "yellow",
     });
   });
+
   test("renders Y when seconds are even", () => {
     const component = findByTestAttribute(wrapper, "clock-seconds");
     expect(component.text()).toBe("Y");
@@ -94,7 +108,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("RRRR");
   });
 
-  test("renders OOOO when the hous is the first of the block and styled the light", () => {
+  test("renders OOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
@@ -110,7 +124,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders ROOO when the hous is the second of the block and styled the light", () => {
+  test("renders ROOO when the hours is the second of the block and styled the light", () => {
     wrapper = setUp({ hours: 1, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
@@ -126,7 +140,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders RROO when the hous is the third of the block and styled the light", () => {
+  test("renders RROO when the hours is the third of the block and styled the light", () => {
     wrapper = setUp({ hours: 2, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
@@ -142,7 +156,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders RRRO when the hous is the fourth of the block and styled the light", () => {
+  test("renders RRRO when the hours is the fourth of the block and styled the light", () => {
     wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
@@ -158,7 +172,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders RRRR when the hous is the last of the block", () => {
+  test("renders RRRR when the hours is the last of the block", () => {
     wrapper = setUp({ hours: 4, minutes: 0, seconds: 0 });
     const component = findByTestAttribute(
       wrapper,
@@ -167,7 +181,7 @@ describe("test the correct job of the seconds clock", () => {
     expect(component.text()).toBe("RRRR");
   });
 
-  test("renders OOOOOOOOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders OOOOOOOOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 2, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("OOOOOOOOOOO");
@@ -180,7 +194,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YOOOOOOOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YOOOOOOOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 6, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YOOOOOOOOOO");
@@ -193,7 +207,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYOOOOOOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YYOOOOOOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 11, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYOOOOOOOOO");
@@ -206,7 +220,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYROOOOOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YYROOOOOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 18, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYROOOOOOOO");
@@ -219,7 +233,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYOOOOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYOOOOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 23, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYOOOOOOO");
@@ -232,7 +246,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYYOOOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYYOOOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 28, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYYOOOOOO");
@@ -245,7 +259,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYYROOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYYROOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 32, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYYROOOOO");
@@ -258,7 +272,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYYRYOOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYYRYOOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 35, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYYRYOOOO");
@@ -271,7 +285,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYYRYYOOO when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYYRYYOOO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 42, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYYRYYOOO");
@@ -284,7 +298,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYYRYYROO when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYYRYYROO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 46, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYYRYYROO");
@@ -297,7 +311,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYYRYYRYO when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYYRYYRYO when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 51, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYYRYYRYO");
@@ -310,7 +324,7 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("renders YYRYYRYYRYY when the hous is the first of the block and styled the light", () => {
+  test("renders YYRYYRYYRYY when the hours is the first of the block and styled the light", () => {
     wrapper = setUp({ hours: 0, minutes: 55, seconds: 0 });
     const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
     expect(component.text()).toBe("YYRYYRYYRYY");
