@@ -2,35 +2,13 @@ const secondsLight = (seconds) => {
   return seconds % 2 !== 0 ? "O" : "Y";
 };
 
-const fiveHoursLights = (hours) => {
-  let fiveHoursCount = Math.floor(hours / 5);
-  let result;
-  switch (fiveHoursCount) {
-    case 0:
-      result = "OOOO";
-      break;
-    case 1:
-      result = "ROOO";
-      break;
-    case 2:
-      result = "RROO";
-      break;
-    case 3:
-      result = "RRRO";
-      break;
-    case 4:
-      result = "RRRR";
-      break;
-    default:
-      result = "OOOO";
+const hoursLights = (hours, type) => {
+  let expresionToSwitch = Math.floor(hours / 5);
+  if (type === "singleHours") {
+    expresionToSwitch = hours % 5;
   }
-  return result;
-};
-
-const singleHoursLights = (hours) => {
-  let oneHoursCount = hours % 5;
   let result;
-  switch (oneHoursCount) {
+  switch (expresionToSwitch) {
     case 0:
       result = "OOOO";
       break;
@@ -126,8 +104,8 @@ const singleMinutesLights = (minutes) => {
 export const getBerlinTime = (seconds, minutes, hours) => {
   return (
     secondsLight(seconds) +
-    fiveHoursLights(hours) +
-    singleHoursLights(hours) +
+    hoursLights(hours) +
+    hoursLights(hours, "singleHours") +
     fiveMinutesLights(minutes) +
     singleMinutesLights(minutes)
   );

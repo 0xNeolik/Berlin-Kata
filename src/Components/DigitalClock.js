@@ -1,10 +1,12 @@
 import React from "react";
 import { getBerlinTime } from "../ClockLogic/ClockLogic";
+import { digitalTimeHourMinSec } from "../Utils/utils";
 import "./DigitalClock.css";
 
 export default function DigitalClock({ seconds, minutes, hours }) {
   const berlinTime = getBerlinTime(seconds, minutes, hours);
-  const digitalTime = `${hours} : ${minutes} : ${seconds}`;
+  const digitalTime = digitalTimeHourMinSec().getTime();
+
   return (
     <div data-test="clock" id="clock">
       <div className="row">
