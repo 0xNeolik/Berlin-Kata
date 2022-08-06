@@ -17,423 +17,357 @@ describe("test the correct job of the seconds clock", () => {
   });
 
   test("renders the clock without an error", () => {
-    const component = findByTestAttribute(wrapper, "clock");
-    expect(component.length).toBe(1);
+    const clock = findByTestAttribute(wrapper, "clock");
+    expect(clock.length).toBe(1);
   });
 
   test("renders the berlin time converter to digital time without an error", () => {
-    const component = findByTestAttribute(wrapper, "berlin-time-converter");
-    expect(component.length).toBe(1);
+    const berlinTimeConverter = findByTestAttribute(
+      wrapper,
+      "berlin-time-converter"
+    );
+    expect(berlinTimeConverter.length).toBe(1);
   });
 
   test("renders a string with 24 caracteres", () => {
-    const component = findByTestAttribute(wrapper, "berlin-time-value");
-    expect(component.text().length).toBe(24);
+    const berlinTimeValue = findByTestAttribute(wrapper, "berlin-time-value");
+    expect(berlinTimeValue.text().length).toBe(24);
   });
 
   test("renders the seconds clock without an error", () => {
-    const component = findByTestAttribute(wrapper, "clock-seconds");
-    expect(component.length).toBe(1);
+    const clockSeconds = findByTestAttribute(wrapper, "clock-seconds");
+    expect(clockSeconds.length).toBe(1);
   });
 
-  test("renders O when seconds are odd and styled the light", () => {
+  test("styled the light when seconds are odd", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 39 });
-    const component = findByTestAttribute(wrapper, "clock-seconds");
-    expect(component.text()).toBe("O");
-    expect(component.props().style).toStrictEqual({
+    const clockSecondsOdd = findByTestAttribute(wrapper, "clock-seconds");
+    expect(clockSecondsOdd.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders Y when seconds are even", () => {
-    const component = findByTestAttribute(wrapper, "clock-seconds");
-    expect(component.text()).toBe("Y");
+  test("styled the light when seconds are even", () => {
+    const clockSecondsEven = findByTestAttribute(wrapper, "clock-seconds");
+    expect(clockSecondsEven.props().style).toStrictEqual({
+      backgroundColor: "red",
+    });
   });
 
-  test("renders OOOO when the hours are beetwen 0-5 and styled the light", () => {
+  test("styled the light with yellow background when the hours are beetwen 0-5", () => {
     wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-hours-container");
-    expect(component.text()).toBe("OOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveHoursContainerZero = findByTestAttribute(
       wrapper,
       "clock-5-hours-container-children-0"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveHoursContainerZero.props().style).toStrictEqual({
+      backgroundColor: "yellow",
+    });
+  });
+
+  test("styled the light when the hours are beetwen 5-10", () => {
+    wrapper = setUp({ hours: 7, minutes: 0, seconds: 0 });
+    const clockFiveHoursContainerZero = findByTestAttribute(
+      wrapper,
+      "clock-5-hours-container-children-0"
+    );
+    expect(clockFiveHoursContainerZero.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders ROOO when the hours are beetwen 5-10 and styled the light", () => {
-    wrapper = setUp({ hours: 7, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-hours-container");
-    expect(component.text()).toBe("ROOO");
-    const containerStyle = findByTestAttribute(
+  test("styled the light when the hours are beetwen 10-15", () => {
+    wrapper = setUp({ hours: 11, minutes: 0, seconds: 0 });
+    const clockFiveHoursContainerOne = findByTestAttribute(
       wrapper,
       "clock-5-hours-container-children-1"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveHoursContainerOne.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders RROO when the hours are beetwen 10-15 and styled the light", () => {
-    wrapper = setUp({ hours: 11, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-hours-container");
-    expect(component.text()).toBe("RROO");
-    const containerStyle = findByTestAttribute(
+  test("styled the light when the hours are beetwen 15-20", () => {
+    wrapper = setUp({ hours: 16, minutes: 0, seconds: 0 });
+    const clockFiveHoursContainerTwo = findByTestAttribute(
       wrapper,
       "clock-5-hours-container-children-2"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveHoursContainerTwo.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders RRRO when the hours are beetwen 15-20 and styled the light", () => {
-    wrapper = setUp({ hours: 16, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-hours-container");
-    expect(component.text()).toBe("RRRO");
-    const containerStyle = findByTestAttribute(
+  test("styled the light when the hours are beetwen 20-24", () => {
+    wrapper = setUp({ hours: 23, minutes: 0, seconds: 0 });
+    const clockFiveHoursContainerThree = findByTestAttribute(
       wrapper,
       "clock-5-hours-container-children-3"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveHoursContainerThree.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders RRRR when the hours are beetwen 20-24", () => {
-    wrapper = setUp({ hours: 23, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-hours-container");
-    expect(component.text()).toBe("RRRR");
-  });
-
-  test("renders OOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light with yellow background when the hour is the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-hour-container"
-    );
-    expect(component.text()).toBe("OOOO");
-    const containerStyle = findByTestAttribute(
+    const clockSingleHourContainerZero = findByTestAttribute(
       wrapper,
       "clock-single-hour-container-children-0"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleHourContainerZero.props().style).toStrictEqual({
+      backgroundColor: "yellow",
+    });
+  });
+
+  test("styled the light when the hour is the first of the block", () => {
+    wrapper = setUp({ hours: 1, minutes: 0, seconds: 0 });
+    const clockSingleHourContainerZero = findByTestAttribute(
+      wrapper,
+      "clock-single-hour-container-children-0"
+    );
+    expect(clockSingleHourContainerZero.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders ROOO when the hours is the second of the block and styled the light", () => {
-    wrapper = setUp({ hours: 1, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-hour-container"
-    );
-    expect(component.text()).toBe("ROOO");
-    const containerStyle = findByTestAttribute(
+  test("styled the light when the hour is the second of the block", () => {
+    wrapper = setUp({ hours: 2, minutes: 0, seconds: 0 });
+    const clockSingleHourContainerOne = findByTestAttribute(
       wrapper,
       "clock-single-hour-container-children-1"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleHourContainerOne.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders RROO when the hours is the third of the block and styled the light", () => {
-    wrapper = setUp({ hours: 2, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-hour-container"
-    );
-    expect(component.text()).toBe("RROO");
-    const containerStyle = findByTestAttribute(
+  test("styled the light when the hour is the third of the block", () => {
+    wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
+    const clockSingleHourContainerTwo = findByTestAttribute(
       wrapper,
       "clock-single-hour-container-children-2"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleHourContainerTwo.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders RRRO when the hours is the fourth of the block and styled the light", () => {
-    wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-hour-container"
-    );
-    expect(component.text()).toBe("RRRO");
-    const containerStyle = findByTestAttribute(
+  test("styled the light when the hour is the last of the block", () => {
+    wrapper = setUp({ hours: 4, minutes: 0, seconds: 0 });
+    const clockSingleHourContainerThree = findByTestAttribute(
       wrapper,
       "clock-single-hour-container-children-3"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleHourContainerThree.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders RRRR when the hours is the last of the block", () => {
-    wrapper = setUp({ hours: 4, minutes: 0, seconds: 0 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-hour-container"
-    );
-    expect(component.text()).toBe("RRRR");
-  });
-
-  test("renders OOOOOOOOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light with none backgorund when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 2, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("OOOOOOOOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerZero = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-0"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerZero.props().style).toStrictEqual({
       backgroundColor: "none",
     });
   });
 
-  test("renders YOOOOOOOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 6, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YOOOOOOOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerZero = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-0"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerZero.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYOOOOOOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 11, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYOOOOOOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerOne = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-1"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerOne.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYROOOOOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 18, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYROOOOOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerTwo = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-2"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerTwo.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders YYRYOOOOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 23, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYOOOOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerThree = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-3"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerThree.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYRYYOOOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 28, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYYOOOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerFour = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-4"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerFour.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYRYYROOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 32, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYYROOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerFive = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-5"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerFive.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders YYRYYRYOOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 35, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYYRYOOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerSix = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-6"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerSix.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYRYYRYYOOO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 42, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYYRYYOOO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerSeven = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-7"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerSeven.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYRYYRYYROO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 46, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYYRYYROO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerEight = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-8"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerEight.props().style).toStrictEqual({
       backgroundColor: "red",
     });
   });
 
-  test("renders YYRYYRYYRYO when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 51, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYYRYYRYO");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerNine = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-9"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerNine.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYRYYRYYRYY when the hours is the first of the block and styled the light", () => {
+  test("styled the light when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 55, seconds: 0 });
-    const component = findByTestAttribute(wrapper, "clock-5-minutes-container");
-    expect(component.text()).toBe("YYRYYRYYRYY");
-    const containerStyle = findByTestAttribute(
+    const clockFiveMinutesContainerTen = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-10"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockFiveMinutesContainerTen.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders OOOO when the minute is the first of the block and styled the light", () => {
+  test("styled the light with none background when the minute is the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 40 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-minute-container"
-    );
-    expect(component.text()).toBe("OOOO");
-    const containerChildrenZeroStyle = findByTestAttribute(
+    const clockSingleMinuteContainerZero = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-0"
     );
-    expect(containerChildrenZeroStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerZero.props().style).toStrictEqual({
       backgroundColor: "none",
     });
-    const containerChildrenOneStyle = findByTestAttribute(
+    const clockSingleMinuteContainerOne = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-1"
     );
-    expect(containerChildrenOneStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerOne.props().style).toStrictEqual({
       backgroundColor: "none",
     });
-    const containerChildrenTwoStyle = findByTestAttribute(
+    const clockSingleMinuteContainerTwo = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-2"
     );
-    expect(containerChildrenTwoStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerTwo.props().style).toStrictEqual({
       backgroundColor: "none",
     });
-    const containerChildrenThreeStyle = findByTestAttribute(
+    const clockSingleMinuteContainerThree = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-3"
     );
-    expect(containerChildrenThreeStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerThree.props().style).toStrictEqual({
       backgroundColor: "none",
     });
   });
 
-  test("renders YOOO when the minute is the second of the block and styled the light", () => {
+  test("styled the light when the minute is the second of the block", () => {
     wrapper = setUp({ hours: 1, minutes: 1, seconds: 20 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-minute-container"
-    );
-    expect(component.text()).toBe("YOOO");
-    const containerStyle = findByTestAttribute(
+    const clockSingleMinuteContainerZero = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-0"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerZero.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYOO when the minute is the third of the block and styled the light", () => {
+  test("styled the light when the minute is the third of the block", () => {
     wrapper = setUp({ hours: 2, minutes: 2, seconds: 30 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-minute-container"
-    );
-    expect(component.text()).toBe("YYOO");
-    const containerStyle = findByTestAttribute(
+    const clockSingleMinuteContainerOne = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-1"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerOne.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYYO when the minute is the fourth of the block and styled the light", () => {
+  test("styled the light when the minute is the fourth of the block", () => {
     wrapper = setUp({ hours: 3, minutes: 3, seconds: 50 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-minute-container"
-    );
-    expect(component.text()).toBe("YYYO");
-    const containerStyle = findByTestAttribute(
+    const clockSingleMinuteContainerTwo = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-2"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerTwo.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
 
-  test("renders YYYY when the minute is the last of the block", () => {
+  test("styled the light when the minute is the last of the block", () => {
     wrapper = setUp({ hours: 4, minutes: 4, seconds: 59 });
-    const component = findByTestAttribute(
-      wrapper,
-      "clock-single-minute-container"
-    );
-    expect(component.text()).toBe("YYYY");
-    const containerStyle = findByTestAttribute(
+    const clockSingleMinuteContainerThree = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-3"
     );
-    expect(containerStyle.props().style).toStrictEqual({
+    expect(clockSingleMinuteContainerThree.props().style).toStrictEqual({
       backgroundColor: "yellow",
     });
   });
