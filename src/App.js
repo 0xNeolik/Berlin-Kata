@@ -13,9 +13,10 @@ function App() {
       setTime(splitDigitalTime(digitalTimeHourMinSec().getTime()));
     }, 1000);
   }, []);
+
   return (
     <div className="app-container">
-      Berlin Clock
+      <h1>Berlin Clock</h1>
       <DigitalClock
         seconds={time.seconds}
         minutes={time.minutes}
