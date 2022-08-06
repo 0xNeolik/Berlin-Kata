@@ -1,7 +1,9 @@
+// Returns the Berlin Time nomenclature for second block
 const secondsLight = (seconds) => {
   return seconds % 2 !== 0 ? "O" : "Y";
 };
 
+// Returns the Berlin Time nomenclature for hours - 5 hours & single hour blocks
 const hoursLights = (hours, type) => {
   let expresionToSwitch = Math.floor(hours / 5);
   if (type === "singleHours") {
@@ -30,6 +32,7 @@ const hoursLights = (hours, type) => {
   return result;
 };
 
+// Returns the Berlin Time nomenclature for 5 minutes block - 5 minutes block
 const fiveMinutesLights = (minutes) => {
   let fiveMinutesCount = Math.floor(minutes / 5);
   let result;
@@ -76,6 +79,7 @@ const fiveMinutesLights = (minutes) => {
   return result;
 };
 
+// Returns the Berlin Time nomenclature for single minute block - single minute block
 const singleMinutesLights = (minutes) => {
   let minutesCount = minutes % 5;
   let result;
@@ -101,6 +105,7 @@ const singleMinutesLights = (minutes) => {
   return result;
 };
 
+// Returns the Berlin Time nomenclature for time - Berlin Time converter
 export const getBerlinTime = (seconds, minutes, hours) => {
   return (
     secondsLight(seconds) +

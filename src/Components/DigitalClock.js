@@ -4,17 +4,22 @@ import { digitalTimeHourMinSec } from "../Utils/utils";
 import "./DigitalClock.css";
 
 export default function DigitalClock({ seconds, minutes, hours }) {
+  // Constant that shows the time with the nomenclature "O"- "Y" - "R" Berlin Time
   const berlinTime = getBerlinTime(seconds, minutes, hours);
+  // Constant that shows the time with the nomenclature "Hours" - "Minutes" - "Seconds" Digital time
   const digitalTime = digitalTimeHourMinSec().getTime();
-
   return (
+    // Render the clock in website
     <div data-test="clock" id="clock">
+      {/* First row - Converter time from digital time to Berlin Time */}
       <div className="row">
         <div data-test="berlin-time-converter">
           <span>{digitalTime}</span> is{" "}
           <span data-test="berlin-time-value">{berlinTime}</span> in Berlin Time
         </div>
       </div>
+      {/* Second row - Renders the clock by seconds white for 
+       even seconds red for odd seconds*/}
       <div className="row">
         <div
           data-test="clock-seconds"
@@ -24,6 +29,9 @@ export default function DigitalClock({ seconds, minutes, hours }) {
           }}
         ></div>
       </div>
+      {/* Third row - 5 hours lights block - Renders the lights for the 5 
+      hours block , if the current time is within the 5 hour block the 
+      light will be red if not white*/}
       <div data-test="clock-5-hours-container" className="row">
         <div
           className="clock-light"
@@ -54,6 +62,9 @@ export default function DigitalClock({ seconds, minutes, hours }) {
           }}
         ></div>
       </div>
+      {/* Fourth row - single hour lights block - Renders the lights for the single 
+      hour block , shows in red the lights that have been passed in the block of 5 
+      hours of the upper row if not the light will be white*/}
       <div data-test="clock-single-hour-container" className="row">
         <div
           className="clock-light"
@@ -84,6 +95,10 @@ export default function DigitalClock({ seconds, minutes, hours }) {
           }}
         ></div>
       </div>
+      {/* Fifth row - 5 minutes lights block - Renders lights blocks of 5 minutes 
+      that make up the light on the top row, if the current time is within its block, 
+      the light will be yellow, if not white. Every multiple of 3 will be a red light 
+      instead of yellow.*/}
       <div data-test="clock-5-minutes-container" className="row">
         <div
           className="clock-light"
@@ -163,6 +178,9 @@ export default function DigitalClock({ seconds, minutes, hours }) {
           }}
         ></div>
       </div>
+      {/* Sixth row - 5 minutes lights block - Renders a yellow light for each minute 
+      that has passed in the current light block on the top row, if the minute has 
+      not passed a white light is shown*/}
       <div data-test="clock-single-minute-container" className="row">
         <div
           className="clock-light"
