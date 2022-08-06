@@ -98,7 +98,7 @@ export const fiveMinutesLights = (minutes) => {
   return result;
 };
 
-const singleMinutesLights = (minutes) => {
+export const singleMinutesLights = (minutes) => {
   let minutesCount = minutes % 5;
   let result;
   switch (minutesCount) {

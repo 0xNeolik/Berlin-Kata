@@ -4,6 +4,7 @@ import {
   fiveHoursLights,
   singleHoursLights,
   fiveMinutesLights,
+  singleMinutesLights,
 } from "../ClockLogic/ClockLogic";
 import "./DigitalClock.css";
 
@@ -160,6 +161,37 @@ export default function DigitalClock({ seconds, minutes, hours }) {
           data-test="clock-5-minutes-container-children-10"
           style={{
             backgroundColor: Math.floor(minutes / 5) >= 11 ? "yellow" : "none",
+          }}
+        ></div>
+      </div>
+      <div data-test="clock-single-minute-container" className="row">
+        {singleMinutesLights(minutes)}
+        <div
+          className="clock-light"
+          data-test="clock-single-minute-container-children-0"
+          style={{
+            backgroundColor: minutes % 5 >= 1 ? "yellow" : "none",
+          }}
+        ></div>
+        <div
+          className="clock-light"
+          data-test="clock-single-minute-container-children-1"
+          style={{
+            backgroundColor: minutes % 5 >= 2 ? "yellow" : "none",
+          }}
+        ></div>
+        <div
+          className="clock-light"
+          data-test="clock-single-minute-container-children-2"
+          style={{
+            backgroundColor: minutes % 5 >= 3 ? "yellow" : "none",
+          }}
+        ></div>
+        <div
+          className="clock-light"
+          data-test="clock-single-minute-container-children-3"
+          style={{
+            backgroundColor: minutes % 5 >= 4 ? "yellow" : "none",
           }}
         ></div>
       </div>
