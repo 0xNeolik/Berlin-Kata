@@ -5,12 +5,21 @@ import {
   singleHoursLights,
   fiveMinutesLights,
   singleMinutesLights,
+  getBerlinTime,
 } from "../ClockLogic/ClockLogic";
 import "./DigitalClock.css";
 
 export default function DigitalClock({ seconds, minutes, hours }) {
+  const berlinTime = getBerlinTime(seconds, minutes, hours);
+  const digitalTime = `${hours} : ${minutes} : ${seconds}`;
   return (
     <div data-test="clock" id="clock">
+      <div className="row">
+        <div data-test="berlin-time-converter">
+          <span>{digitalTime}</span> is{" "}
+          <span data-test="berlin-time-value">{berlinTime}</span> in Berlin Time
+        </div>
+      </div>
       <div className="row">
         <div
           data-test="clock-seconds"
