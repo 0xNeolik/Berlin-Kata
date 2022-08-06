@@ -85,7 +85,6 @@ export default function DigitalClock({ seconds, minutes, hours }) {
       </div>
       <div data-test="clock-5-minutes-container" className="row">
         {fiveMinutesLights(minutes)}
-        {console.log(Math.floor(minutes / 5))}
         <div
           className="clock-light"
           data-test="clock-5-minutes-container-children-0"

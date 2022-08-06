@@ -322,4 +322,105 @@ describe("test the correct job of the seconds clock", () => {
       backgroundColor: "yellow",
     });
   });
+
+  test("renders OOOO when the minute is the first of the block and styled the light", () => {
+    wrapper = setUp({ hours: 0, minutes: 0, seconds: 40 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container"
+    );
+    expect(component.text()).toBe("OOOO");
+    const containerChildrenZeroStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-0"
+    );
+    expect(containerChildrenZeroStyle.props().style).toStrictEqual({
+      backgroundColor: "none",
+    });
+    const containerChildrenOneStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-1"
+    );
+    expect(containerChildrenOneStyle.props().style).toStrictEqual({
+      backgroundColor: "none",
+    });
+    const containerChildrenTwoStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-2"
+    );
+    expect(containerChildrenTwoStyle.props().style).toStrictEqual({
+      backgroundColor: "none",
+    });
+    const containerChildrenThreeStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-3"
+    );
+    expect(containerChildrenThreeStyle.props().style).toStrictEqual({
+      backgroundColor: "none",
+    });
+  });
+
+  test("renders YOOO when the minute is the second of the block and styled the light", () => {
+    wrapper = setUp({ hours: 1, minutes: 1, seconds: 20 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container"
+    );
+    expect(component.text()).toBe("YOOO");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-0"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "yellow",
+    });
+  });
+
+  test("renders YYOO when the minute is the third of the block and styled the light", () => {
+    wrapper = setUp({ hours: 2, minutes: 2, seconds: 30 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container"
+    );
+    expect(component.text()).toBe("YYOO");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-1"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "yellow",
+    });
+  });
+
+  test("renders YYYO when the minute is the fourth of the block and styled the light", () => {
+    wrapper = setUp({ hours: 3, minutes: 3, seconds: 50 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container"
+    );
+    expect(component.text()).toBe("YYYO");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-2"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "yellow",
+    });
+  });
+
+  test("renders YYYY when the minute is the last of the block", () => {
+    wrapper = setUp({ hours: 4, minutes: 4, seconds: 59 });
+    const component = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container"
+    );
+    expect(component.text()).toBe("YYYY");
+    const containerStyle = findByTestAttribute(
+      wrapper,
+      "clock-single-minute-container-children-3"
+    );
+    expect(containerStyle.props().style).toStrictEqual({
+      backgroundColor: "yellow",
+    });
+  });
 });

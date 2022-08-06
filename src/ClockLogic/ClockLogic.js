@@ -97,3 +97,28 @@ export const fiveMinutesLights = (minutes) => {
   }
   return result;
 };
+
+const singleMinutesLights = (minutes) => {
+  let minutesCount = minutes % 5;
+  let result;
+  switch (minutesCount) {
+    case 0:
+      result = "OOOO";
+      break;
+    case 1:
+      result = "YOOO";
+      break;
+    case 2:
+      result = "YYOO";
+      break;
+    case 3:
+      result = "YYYO";
+      break;
+    case 4:
+      result = "YYYY";
+      break;
+    default:
+      result = "OOOO";
+  }
+  return result;
+};
