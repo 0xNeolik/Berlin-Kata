@@ -1,8 +1,8 @@
-export const secondsLight = (seconds) => {
+const secondsLight = (seconds) => {
   return seconds % 2 !== 0 ? "O" : "Y";
 };
 
-export const fiveHoursLights = (hours) => {
+const fiveHoursLights = (hours) => {
   let fiveHoursCount = Math.floor(hours / 5);
   let result;
   switch (fiveHoursCount) {
@@ -27,7 +27,7 @@ export const fiveHoursLights = (hours) => {
   return result;
 };
 
-export const singleHoursLights = (hours) => {
+const singleHoursLights = (hours) => {
   let oneHoursCount = hours % 5;
   let result;
   switch (oneHoursCount) {
@@ -52,7 +52,7 @@ export const singleHoursLights = (hours) => {
   return result;
 };
 
-export const fiveMinutesLights = (minutes) => {
+const fiveMinutesLights = (minutes) => {
   let fiveMinutesCount = Math.floor(minutes / 5);
   let result;
   switch (fiveMinutesCount) {
@@ -98,7 +98,7 @@ export const fiveMinutesLights = (minutes) => {
   return result;
 };
 
-export const singleMinutesLights = (minutes) => {
+const singleMinutesLights = (minutes) => {
   let minutesCount = minutes % 5;
   let result;
   switch (minutesCount) {

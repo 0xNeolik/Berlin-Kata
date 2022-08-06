@@ -43,7 +43,7 @@ describe("test the correct job of the seconds clock", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 39 });
     const clockSecondsOdd = findByTestAttribute(wrapper, "clock-seconds");
     expect(clockSecondsOdd.props().style).toStrictEqual({
-      backgroundColor: "yellow",
+      backgroundColor: "white",
     });
   });
 
@@ -54,14 +54,14 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("styled the light with yellow background when the hours are beetwen 0-5", () => {
+  test("styled the light with white background when the hours are beetwen 0-5", () => {
     wrapper = setUp({ hours: 3, minutes: 0, seconds: 0 });
     const clockFiveHoursContainerZero = findByTestAttribute(
       wrapper,
       "clock-5-hours-container-children-0"
     );
     expect(clockFiveHoursContainerZero.props().style).toStrictEqual({
-      backgroundColor: "yellow",
+      backgroundColor: "white",
     });
   });
 
@@ -109,14 +109,14 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("styled the light with yellow background when the hour is the first of the block", () => {
+  test("styled the light with white background when the hour is the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 0 });
     const clockSingleHourContainerZero = findByTestAttribute(
       wrapper,
       "clock-single-hour-container-children-0"
     );
     expect(clockSingleHourContainerZero.props().style).toStrictEqual({
-      backgroundColor: "yellow",
+      backgroundColor: "white",
     });
   });
 
@@ -164,14 +164,14 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("styled the light with none backgorund when the minutes are the first of the block", () => {
+  test("styled the light with white backgorund when the minutes are the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 2, seconds: 0 });
     const clockFiveMinutesContainerZero = findByTestAttribute(
       wrapper,
       "clock-5-minutes-container-children-0"
     );
     expect(clockFiveMinutesContainerZero.props().style).toStrictEqual({
-      backgroundColor: "none",
+      backgroundColor: "white",
     });
   });
 
@@ -296,35 +296,35 @@ describe("test the correct job of the seconds clock", () => {
     });
   });
 
-  test("styled the light with none background when the minute is the first of the block", () => {
+  test("styled the light with white background when the minute is the first of the block", () => {
     wrapper = setUp({ hours: 0, minutes: 0, seconds: 40 });
     const clockSingleMinuteContainerZero = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-0"
     );
     expect(clockSingleMinuteContainerZero.props().style).toStrictEqual({
-      backgroundColor: "none",
+      backgroundColor: "white",
     });
     const clockSingleMinuteContainerOne = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-1"
     );
     expect(clockSingleMinuteContainerOne.props().style).toStrictEqual({
-      backgroundColor: "none",
+      backgroundColor: "white",
     });
     const clockSingleMinuteContainerTwo = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-2"
     );
     expect(clockSingleMinuteContainerTwo.props().style).toStrictEqual({
-      backgroundColor: "none",
+      backgroundColor: "white",
     });
     const clockSingleMinuteContainerThree = findByTestAttribute(
       wrapper,
       "clock-single-minute-container-children-3"
     );
     expect(clockSingleMinuteContainerThree.props().style).toStrictEqual({
-      backgroundColor: "none",
+      backgroundColor: "white",
     });
   });
 
